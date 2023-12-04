@@ -43,6 +43,19 @@ caso, como o function component é uma função
 e um componente, cada componente deverá ter
 apenas uma responsabilidade.
 
+#### SPA
+
+*“Single Page Applications”* ou "Aplicações de Única Página"
+
+O objetivo de uma SPA é concentrar
+toda uma aplicação em um único documento HTML que é entregue ao
+navegador.
+
+Toda mudança de página em uma aplicação do estilo SPA é feita usando
+Javascript e não requer, necessariamente, chamadas ao lado servidor.
+Assim as mudanças são mais rápidas e eficientes, mas requer um maior
+processamento no navegador.
+
 <div align="center">
 
 ## Criando o projeto
