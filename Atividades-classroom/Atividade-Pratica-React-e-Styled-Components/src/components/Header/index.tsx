@@ -3,7 +3,9 @@ import { Wrapper } from "./styles"
 export function Header() {
   return (
     <>
-      <Wrapper></Wrapper>
+      <Wrapper>
+        <p>Minha primeira página com React.</p>
+      </Wrapper>
     </>
   )
 }
