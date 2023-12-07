@@ -4,7 +4,7 @@ export function Header() {
   return (
     <>
       <Wrapper>
-        <p>Minha primeira página com React.</p>
+        <h1>Minha primeira página com React.</h1>
       </Wrapper>
     </>
   )

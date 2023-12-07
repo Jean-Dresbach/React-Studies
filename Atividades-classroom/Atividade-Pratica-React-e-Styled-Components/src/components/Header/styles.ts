@@ -6,7 +6,9 @@ export const Wrapper = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 270px;
+  max-width: 1250px;
+  margin: 0 auto;
 
   ::before {
     content: "";
@@ -14,14 +16,16 @@ export const Wrapper = styled.header`
     background-image: url(${headerBackground});
     background-attachment: fixed;
     background-size: cover;
-    filter: brightness(50%);
+    filter: brightness(50%) hue-rotate(18deg);
     inset: 0;
     z-index: -1;
+    box-shadow: 0 0 34px 0 rgba(112, 112, 112, 0.5);
   }
 
-  p {
+  h1 {
     color: white;
-    font-size: 20px;
-    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: normal;
   }
 `
