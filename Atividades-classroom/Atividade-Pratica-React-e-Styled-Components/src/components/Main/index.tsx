@@ -4,11 +4,9 @@ import { Wrapper } from "./styles"
 
 export function Main() {
   return (
-    <>
-      <Wrapper>
-        <SectionFeature />
-        <SectionArticle />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <SectionFeature />
+      <SectionArticle />
+    </Wrapper>
   )
 }
