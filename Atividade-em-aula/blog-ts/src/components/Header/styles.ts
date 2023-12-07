@@ -1,10 +1,10 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Wrapper = styled.header`
   display: flex;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  background-color: ${({theme}) => theme.colors.secondary};
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
   padding: 20px 0;
 `
 
