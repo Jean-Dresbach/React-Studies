@@ -9,6 +9,7 @@ export const Wrapper = styled.section`
   height: 180px;
   max-width: 1250px;
   margin: 0 auto;
+  z-index: 2;
 
   ::before {
     content: "";
@@ -20,7 +21,6 @@ export const Wrapper = styled.section`
     filter: brightness(50%) hue-rotate(18deg);
     inset: 0;
     z-index: -1;
-    box-shadow: 0 0 34px 0 rgba(112, 112, 112, 0.5);
   }
 
   h2 {

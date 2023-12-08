@@ -3,7 +3,6 @@ import { Wrapper } from "./styles"
 export function Artcle() {
   return (
     <Wrapper>
-      <div>
         <h2>Lorem, ipsum.</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
@@ -14,7 +13,6 @@ export function Artcle() {
           dolore dolor libero incidunt corrupti tenetur culpa, iusto eveniet ut,
           iure perferendis earum deserunt doloremque inventore fugit!
         </p>
-      </div>
     </Wrapper>
   )
 }

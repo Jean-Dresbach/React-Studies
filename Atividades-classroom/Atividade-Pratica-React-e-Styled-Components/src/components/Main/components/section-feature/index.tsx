@@ -1,5 +1,6 @@
 import { FeatureItem } from "./components/Features"
 import { Wrapper } from "./styles"
+
 import desktopIcon from "../../../../assets/icons/monitor-svgrepo-com.svg"
 import checkIcon from "../../../../assets/icons/check-svgrepo-com.svg"
 import layersIcon from "../../../../assets/icons/layers-svgrepo-com.svg"
