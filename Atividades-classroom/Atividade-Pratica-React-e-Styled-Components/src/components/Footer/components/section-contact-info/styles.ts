@@ -6,6 +6,14 @@ export const Wrapper = styled.section`
   align-items: center;
   height: 150px;
   padding: 0 10vw;
+
+  @media screen and (max-width: 745px) {
+    height: auto;
+    flex-direction: column;
+    padding: 5vw;
+
+    gap: 15px;
+  }
 `
 
 export const ContainerInfo = styled.div`
@@ -40,6 +48,26 @@ export const ContainerInfo = styled.div`
   span {
     color: ${({ theme }) => theme.colors.text};
   }
+
+  @media screen and (max-width: 745px) {
+    text-align: center;
+
+    div {
+      justify-content: center;
+    }
+
+    .nav-after {
+      font-size: 10px;
+
+      &:not(:last-child):after {
+        transform: translate(18px, 5px);
+      }
+    }
+
+    span {
+      font-size: 10px;
+    }
+  }
 `
 
 export const ContainerSocialIcons = styled.div`
@@ -48,5 +76,11 @@ export const ContainerSocialIcons = styled.div`
 
   img {
     width: 30px;
+  }
+
+  @media screen and (max-width: 745px) {
+    img {
+      width: 25px;
+    }
   }
 `

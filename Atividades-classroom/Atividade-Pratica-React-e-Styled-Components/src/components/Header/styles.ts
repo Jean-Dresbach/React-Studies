@@ -28,5 +28,6 @@ export const Wrapper = styled.header`
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     font-weight: normal;
+    text-align: center;
   }
 `

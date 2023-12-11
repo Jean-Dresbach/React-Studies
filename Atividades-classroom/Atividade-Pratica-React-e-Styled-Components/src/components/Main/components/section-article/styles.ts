@@ -9,4 +9,9 @@ export const Wrapper = styled.section`
     aspect-ratio: 1/1;
     object-fit: cover;
   }
+
+  @media screen and (max-width: 890px) {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    gap: 20px;
+  }
 `
