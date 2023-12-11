@@ -9,6 +9,11 @@ export const Wrapper = styled.article`
   padding: 0 20%;
 
   h2 {
+    color: ${({ theme }) => theme.colors.title};
     margin-bottom: 8px;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.text};
   }
 `

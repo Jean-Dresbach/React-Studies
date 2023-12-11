@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 `
 
 export const Title = styled.h2`
+  color: ${({ theme }) => theme.colors.title};
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
 `
@@ -22,5 +23,5 @@ export const Subtitle = styled.span`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: normal;
-  color: #929395;
+  color: ${({ theme }) => theme.colors.text};
 `

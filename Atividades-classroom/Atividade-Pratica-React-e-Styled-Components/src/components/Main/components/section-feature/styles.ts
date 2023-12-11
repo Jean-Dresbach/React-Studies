@@ -5,6 +5,6 @@ export const Wrapper = styled.section`
   justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
-  background-color: #f8f9fb;
+  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   padding: 80px 10px;
 `

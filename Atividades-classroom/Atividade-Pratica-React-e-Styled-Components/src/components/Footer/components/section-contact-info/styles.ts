@@ -17,7 +17,7 @@ export const ContainerInfo = styled.div`
 
   .nav-after {
     position: relative;
-    color: #2878fd;
+    color: ${({ theme }) => theme.colors.primary};
     text-decoration: none;
     font-weight: normal;
 
@@ -31,14 +31,14 @@ export const ContainerInfo = styled.div`
       width: 5px;
       height: 5px;
       border-radius: 100%;
-      background-color: #929395;
+      background-color: ${({ theme }) => theme.colors.text};
 
       transform: translate(18px, 10px);
     }
   }
 
   span {
-    color: #929395;
+    color: ${({ theme }) => theme.colors.text};
   }
 `
 

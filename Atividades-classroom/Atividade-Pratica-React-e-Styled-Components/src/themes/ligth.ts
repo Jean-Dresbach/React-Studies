@@ -1,10 +1,11 @@
 export default {
-  title: "dark",
+  title: "light",
   colors: {
-    primary: "#F3726C",
-    secondary: "#272928",
-    backgroundColor: "#242525",
-    textColor: "#A9A093",
-    title: "#e5e0d8",
+    primary: "#2878fd",
+    backgroundPrimary: "#fFF",
+    backgroundSecondary: "#f8f9fb",
+    title: "#000",
+    text: "#929395",
   },
+  boxShadow: "0 0 28px 10px rgba(112, 112, 112, 0.9)",
 }

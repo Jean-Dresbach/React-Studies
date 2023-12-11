@@ -20,7 +20,7 @@ export const Wrapper = styled.header`
     filter: brightness(50%) hue-rotate(18deg);
     inset: 0;
     z-index: -1;
-    box-shadow: 0 0 34px 0 rgba(112, 112, 112, 0.5);
+    box-shadow: ${({ theme }) => theme.boxShadow};
   }
 
   h1 {
