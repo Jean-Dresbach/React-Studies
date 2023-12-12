@@ -19,7 +19,7 @@ export const ContentContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   max-width: 1200px;
-  padding: 8px 0;
+  padding: 18px 0;
 
   img {
     width: 150px;
@@ -29,13 +29,6 @@ export const ContainerLinks = styled.div`
   display: flex;
   align-items: center;
   gap: 38px;
-
-  :nth-child(3) {
-    color: #fff;
-    background-color: #ff8533;
-    padding: 16px;
-    border-radius: 8px;
-  }
 
   a {
     text-decoration: none;

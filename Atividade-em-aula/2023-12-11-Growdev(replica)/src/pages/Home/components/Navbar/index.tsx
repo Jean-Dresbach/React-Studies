@@ -2,8 +2,9 @@ import { NavLink } from "react-router-dom"
 
 import { ContentContainer, ContainerLinks, Wrapper } from "./styles"
 import growdevLogo from "../../../../assets/growdev.svg"
-import arrowDownWhite from "../../../../assets/arrow-down-white.svg"
 import arrowDownBlack from "../../../../assets/arrow-down-black.svg"
+import arrowDownWhite from "../../../../assets/arrow-down-white.svg"
+import { Dropdown } from "./components/Dropdown"
 
 export function Navbar() {
   return (
@@ -13,16 +14,26 @@ export function Navbar() {
         <ContainerLinks>
           <NavLink to="#"> HOME</NavLink>
           <NavLink to="#"> SOBRE NÓS</NavLink>
-          <NavLink to="#">
-            {" "}
-            PROGRAMAS DE FORMAÇÃO
-            <img src={arrowDownWhite} />
-          </NavLink>
-          <NavLink to="#">
-            {" "}
-            PARA EMPRESAS
-            <img src={arrowDownBlack} />
-          </NavLink>
+          <Dropdown
+            text="PROGRAMAS DE FORMAÇÃO"
+            textColor="#fff"
+            image={arrowDownWhite}
+            backgrounColor="#ff8533"
+            items={[
+              "Nossos programas",
+              "Desenvolvimento Web Full Stack",
+              "Analista de dados",
+              "Qualidade de software (QA)",
+              "Design de produtos digitais (UX/UI)",
+            ]}
+          />
+          <Dropdown
+            text="PARA EMPRESAS"
+            textColor="#212A42"
+            image={arrowDownBlack}
+            backgrounColor="#fff"
+            items={["Nossas soluções", "Celulas de talentos"]}
+          />
           <NavLink to="#"> CONTATO</NavLink>
         </ContainerLinks>
       </ContentContainer>
