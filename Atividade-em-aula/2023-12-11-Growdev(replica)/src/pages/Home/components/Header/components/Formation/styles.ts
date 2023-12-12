@@ -13,7 +13,6 @@ export const Wrapper = styled.div`
     left: 0;
     bottom: 0;
     transform: translate(50%, 0);
-
     z-index: 0;
     width: 50%;
   }

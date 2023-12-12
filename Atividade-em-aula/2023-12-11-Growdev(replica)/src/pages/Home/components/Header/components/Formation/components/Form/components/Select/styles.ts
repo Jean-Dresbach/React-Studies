@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   background-color: white;
 
-  input {
+  select {
     border-radius: 5px;
     padding: 10px 15px;
     border: 1px solid #e0e0e0;
@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
     color: #212a42;
   }
 
-  input:hover {
+  select:hover {
     border: 1px solid black;
   }
 `

@@ -1,35 +1,51 @@
 import styled from "styled-components"
 
 export const Wrapper = styled.nav`
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
   display: flex;
   justify-content: center;
-  position: sticky;
+
+  background-color: #fff;
+  padding: 6px 0;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 `
 
-export const Container = styled.div`
+export const ContentContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
   max-width: 1200px;
-  padding: 15px 0;
+  padding: 8px 0;
+
+  img {
+    width: 150px;
+  }
 `
-export const ContainerMenu = styled.div`
+export const ContainerLinks = styled.div`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 38px;
 
   :nth-child(3) {
+    color: #fff;
     background-color: #ff8533;
-    padding: 15px 20px;
+    padding: 16px;
     border-radius: 8px;
-    color: white;
   }
 
   a {
     text-decoration: none;
+    font-size: 14px;
     font-weight: bold;
     color: #212a42;
+
+    img {
+      margin-left: 5px;
+      width: 10px;
+    }
   }
 `
