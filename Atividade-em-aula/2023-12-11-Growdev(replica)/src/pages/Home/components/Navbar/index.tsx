@@ -12,7 +12,7 @@ export function Navbar() {
       <ContentContainer>
         <img src={growdevLogo} />
         <ContainerLinks>
-          <NavLink to="#"> HOME</NavLink>
+          <NavLink to="#"> Home</NavLink>
           <NavLink to="#"> SOBRE NÓS</NavLink>
           <Dropdown
             text="PROGRAMAS DE FORMAÇÃO"

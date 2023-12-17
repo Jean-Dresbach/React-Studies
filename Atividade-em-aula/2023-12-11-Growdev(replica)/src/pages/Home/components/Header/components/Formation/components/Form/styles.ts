@@ -16,6 +16,10 @@ export const Form = styled.form`
   a {
     color: #1d4ed8;
   }
+
+  button {
+    margin: 10px 0;
+  }
 `
 
 export const FormHeader = styled.div`

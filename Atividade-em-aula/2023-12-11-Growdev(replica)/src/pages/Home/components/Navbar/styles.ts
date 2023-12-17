@@ -35,6 +35,7 @@ export const ContainerLinks = styled.div`
     font-size: 14px;
     font-weight: bold;
     color: #212a42;
+    text-transform: uppercase;
 
     img {
       margin-left: 5px;
