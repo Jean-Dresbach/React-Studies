@@ -9,25 +9,11 @@ export function UseMemo() {
   const [phoneOwner, setPhoneOwner] = useState("")
   const [quantity, setQuantity] = useState(0)
 
-  function handleGenerateList() {
-    const resultList = []
+  // Sem useMemo
 
-    for (let i = 0; i < quantity; i++) {
-      const item = {
-        id: i + 1,
-        name: `Contato${i + 1}`,
-        phoneNumber: Math.floor(100000000 + Math.random() * 900000000),
-      }
-      resultList.push(item)
-    }
-
-    return resultList.map((result) => (
-      <Contact key={result.id} name={result.name} number={result.phoneNumber} />
-    ))
-  }
-
-  // const generatedList = useMemo(() => {
+  // function handleGenerateList() {
   //   const resultList = []
+
   //   for (let i = 0; i < quantity; i++) {
   //     const item = {
   //       id: i + 1,
@@ -36,10 +22,28 @@ export function UseMemo() {
   //     }
   //     resultList.push(item)
   //   }
+
   //   return resultList.map((result) => (
   //     <Contact key={result.id} name={result.name} number={result.phoneNumber} />
   //   ))
-  // }, [quantity])
+  // }
+
+  //Com useMemo
+
+  const generatedList = useMemo(() => {
+    const resultList = []
+    for (let i = 0; i < quantity; i++) {
+      const item = {
+        id: i + 1,
+        name: `Contato${i + 1}`,
+        phoneNumber: Math.floor(100000000 + Math.random() * 900000000),
+      }
+      resultList.push(item)
+    }
+    return resultList.map((result) => (
+      <Contact key={result.id} name={result.name} number={result.phoneNumber} />
+    ))
+  }, [quantity])
 
   return (
     <Phone>
@@ -47,8 +51,11 @@ export function UseMemo() {
         <PhoneTop />
         <p>Lista de contato de {phoneOwner}</p>
         <ContactList>
-          {/* {generatedList} */}
-          {handleGenerateList()}
+          {/* Sem useMemo */}
+          {/* {handleGenerateList()} */}
+
+          {/* Com useMemo */}
+          {generatedList}
         </ContactList>
         <input
           type="text"
