@@ -17,9 +17,9 @@ export const Header = styled.header`
 `
 
 export const Main = styled.main`
+  position: relative;
   display: flex;
   flex-grow: 8;
   justify-content: center;
   align-items: center;
-  color: white;
 `

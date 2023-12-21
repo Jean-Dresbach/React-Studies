@@ -1,22 +1,24 @@
-interface Contact {
-  id: number
-  name: string
-  phoneNumber: number
-}
+import faker from "faker"
 
-const generateContacts = (): Contact[] => {
-  const contacts: Contact[] = []
+// interface Contact {
+//   id: number
+//   name: string
+//   phoneNumber: number
+// }
 
-  for (let i = 0; i < 30000; i++) {
-    const contact: Contact = {
-      id: i + 1,
-      name: `User${i + 1}`,
-      phoneNumber: Math.floor(Math.random() * 10000),
-    }
-    contacts.push(contact)
-  }
+// const generateContacts = (): Contact[] => {
+//   const contacts: Contact[] = []
 
-  return contacts
-}
+//   for (let i = 0; i < 100; i++) {
+//     const contact: Contact = {
+//       id: i + 1,
+//       name: `Contato${i + 1}`,
+//       phoneNumber: Math.floor(Math.random() * 10000),
+//     }
+//     contacts.push(contact)
+//   }
 
-export const contactsList = generateContacts()
+//   return contacts
+// }
+
+// export const contactsList = generateContacts()

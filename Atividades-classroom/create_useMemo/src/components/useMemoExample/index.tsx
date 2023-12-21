@@ -1,20 +1,69 @@
 import { useState, useMemo } from "react"
-import { contactsList } from "../../database/users"
-import { ContainerContactList, PhoneOwnerContainer, Wrapper } from "./style"
+
+import { ContactList, Phone, Screen } from "./style"
+import { PhoneTop } from "./components/PhoneTop"
+import { PhoneBottom } from "./components/PhoneBottom"
+import { Contact } from "./components/Contact"
 
 export function UseMemo() {
-  const [users, setUsers] = useState()
+  const [phoneOwner, setPhoneOwner] = useState("")
+  const [quantity, setQuantity] = useState<number>()
+
+  function handleGenerateList() {
+    const resultList = []
+
+    for (let i = 0; i < quantity; i++) {
+      const item = {
+        id: i + 1,
+        name: `Contato${i + 1}`,
+        phoneNumber: Math.floor(100000000 + Math.random() * 900000000),
+      }
+      resultList.push(item)
+    }
+
+    return resultList.map((result) => (
+      <Contact key={result.id} name={result.name} number={result.phoneNumber} />
+    ))
+  }
+
+  // const generatedList = useMemo(() => {
+  //   const resultList = []
+  //   for (let i = 0; i < quantity; i++) {
+  //     const item = {
+  //       id: i + 1,
+  //       name: `Contato${i + 1}`,
+  //       phoneNumber: Math.floor(100000000 + Math.random() * 900000000),
+  //     }
+  //     resultList.push(item)
+  //   }
+  //   return resultList.map((result) => (
+  //     <Contact key={result.id} name={result.name} number={result.phoneNumber} />
+  //   ))
+  // }, [quantity])
 
   return (
-    <>
-      <Wrapper>
-        <PhoneOwnerContainer>Jean</PhoneOwnerContainer>
-        <ContainerContactList>
-          {contactsList.map((contact) => (
-            <p>{contact.name}</p>
-          ))}
-        </ContainerContactList>
-      </Wrapper>
-    </>
+    <Phone>
+      <Screen>
+        <PhoneTop />
+        <p>Lista de contato de {phoneOwner}</p>
+        <ContactList>
+          {/* {generatedList} */}
+          {handleGenerateList()}
+        </ContactList>
+        <input
+          type="text"
+          value={phoneOwner}
+          onChange={(e) => setPhoneOwner(e.target.value)}
+          placeholder="Digite seu nome"
+        />
+        <input
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+          placeholder="Digite uma quantidade"
+        />
+        <PhoneBottom />
+      </Screen>
+    </Phone>
   )
 }
