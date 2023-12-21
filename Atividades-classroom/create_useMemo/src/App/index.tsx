@@ -1,13 +1,15 @@
 import GlobalStyle from "../styles/global"
+
 import { Header, Main, Wrapper } from "./styles"
 import { UseMemo } from "../components/useMemoExample"
+import titleImg from "../assets/tituloImg.jpeg"
 
 export function App() {
   return (
     <Wrapper>
       <GlobalStyle />
       <Header>
-        <h1>useMemo( )</h1>
+        <img src={titleImg} alt="" />
       </Header>
       <Main>
         <UseMemo />

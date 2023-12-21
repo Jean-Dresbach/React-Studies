@@ -14,6 +14,10 @@ export const Header = styled.header`
   align-items: center;
   flex-grow: 2;
   color: white;
+
+  img {
+    width: 500px;
+  }
 `
 
 export const Main = styled.main`
