@@ -4,6 +4,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  padding: 30px;
+  gap: 30px;
 `
 
 export const Header = styled.header`

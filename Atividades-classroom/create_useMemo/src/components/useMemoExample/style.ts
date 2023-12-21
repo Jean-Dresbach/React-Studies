@@ -1,48 +1,25 @@
 import styled from "styled-components"
 
-export const Form = styled.form`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  width: 500px;
+  width: 350px;
+  aspect-ratio: 9/16;
   border-radius: 8px;
-  background-color: #dd5f6b;
-  padding: 30px;
+  border: 8px solid #1c77c3;
+  background-color: #39a9db;
+  box-shadow: 0 0 25px 10px rgba(0, 210, 247, 0.3);
+  text-align: center;
 `
 
-export const FormHeader = styled.div`
+export const PhoneOwnerContainer = styled.p`
+  color: white;
+  padding: 8px;
+  background-color: #1c77c3;
+`
+
+export const ContainerContactList = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  background-color: #191824;
-  border-radius: 8px;
-  padding: 15px;
-  color: white;
-`
-
-export const Input = styled.input`
-  width: 100%;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  padding: 15px;
-`
-
-export const Button = styled.button`
-  width: 100%;
-  border: none;
-  outline: none;
-  border-radius: 8px;
-  padding: 15px;
-  background-color: #191824;
-  color: white;
-`
-
-export const Select = styled.select`
-  width: 100%;
-  padding: 15px;
-  border: none;
-  outline: none;
-  border-radius: 8px;
+  flex-direction: column;
+  overflow: auto;
 `
