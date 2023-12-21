@@ -7,7 +7,7 @@ import { Contact } from "./components/Contact"
 
 export function UseMemo() {
   const [phoneOwner, setPhoneOwner] = useState("")
-  const [quantity, setQuantity] = useState<number>()
+  const [quantity, setQuantity] = useState(0)
 
   function handleGenerateList() {
     const resultList = []
@@ -59,8 +59,7 @@ export function UseMemo() {
         <input
           type="number"
           value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-          placeholder="Digite uma quantidade"
+          onChange={(e) => setQuantity(Number(e.target.value))}
         />
         <PhoneBottom />
       </Screen>
