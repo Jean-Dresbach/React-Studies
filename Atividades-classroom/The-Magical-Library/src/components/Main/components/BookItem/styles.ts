@@ -3,7 +3,8 @@ import styled from "styled-components"
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: ${({ theme }) =>
+    theme.colors.bookBackground[Math.floor(Math.random() * 10)]};
   padding: 15px 20px;
   gap: 10px;
   border-radius: 5px;
@@ -11,50 +12,39 @@ export const Wrapper = styled.div`
   .bookHeader {
     display: flex;
     align-items: center;
-  }
-
-  .point {
-    display: block !important;
-    width: 4px !important;
-    height: 4px;
-    border-radius: 50%;
-    background-color: white;
-  }
-
-  /* & > :nth-child(1) {
-    display: flex;
-    align-items: center;
     gap: 30px;
 
-    div {
-      flex-direction: row;
+    .containerInfo {
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      gap: 15px;
       flex-grow: 1;
 
-      div {
+      .point {
+        display: block;
         width: 4px;
         height: 4px;
         border-radius: 50%;
         background-color: white;
       }
     }
-
-    h3 {
-      text-transform: uppercase;
-    }
-  } */
+  }
 
   .bookBody {
     position: relative;
     display: flex;
     text-align: justify;
     flex-direction: column;
-    min-height: 100px;
+    min-height: 90px;
     padding-right: 25px;
     gap: 10px;
+
+    div {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
 
     button {
       position: absolute;
@@ -64,19 +54,23 @@ export const Wrapper = styled.div`
       cursor: pointer;
 
       img {
-        width: 40px;
+        width: 30px;
         transform: rotate(90deg);
       }
     }
 
+    button:hover {
+      transform: scale(1.2);
+    }
+
     .edit {
-      right: -46px;
-      top: -7px;
+      right: -39px;
+      top: -2px;
     }
 
     .delete {
-      right: -45px;
-      top: 46px;
+      right: -39px;
+      top: 43px;
     }
   }
 `

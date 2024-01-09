@@ -8,7 +8,6 @@ export const Wrapper = styled.main`
   align-items: center;
 
   background-color: ${({ theme }) => theme.colors.mainBackground};
-  height: 150vh;
 
   hr {
     width: 95%;
@@ -35,6 +34,7 @@ export const ContainerBooks = styled.section`
   align-items: center;
   width: 100%;
   padding: 50px;
-  padding-right: 90px;
+  gap: 15px;
+  padding-right: 70px;
   color: white;
 `

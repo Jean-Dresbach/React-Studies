@@ -1,46 +1,38 @@
+import { Book } from "../../types"
+
 import { Wrapper } from "./styles"
 
 import deleteImg from "../../../../assets/deleteBookMark.png"
 import edtImg from "../../../../assets/editBookMark.png"
 
-interface Book {
-  author: string
-  title: string
-  publicationYear: string
-  genre: string
-  description: string
+interface BookItemProps {
+  book: Book
 }
 
-export function BookItem({
-  author,
-  title,
-  publicationYear,
-  genre,
-  description
-}: Book) {
+export function BookItem({ book }: BookItemProps) {
   return (
     <Wrapper>
       <div className="bookHeader">
         <div className="containerInfo">
-          <h3>{title}</h3>
+          <h3>{book.title}</h3>
           <div className="point"></div>
-          <span>{author}</span>
+          <span>{book.author}</span>
         </div>
 
-        <span>{publicationYear}</span>
+        <span>{book.publishYear.split("-")[0]}</span>
       </div>
 
       <div className="bookBody">
-        <span>{genre}</span>
-        <p>{description}</p>
+        <span>{book.genre}</span>
         <div>
-          <button className="edit">
-            <img src={edtImg} />
-          </button>
-          <button className="delete">
-            <img src={deleteImg} />
-          </button>
+          <p>{book.description}</p>
         </div>
+        <button className="edit">
+          <img src={edtImg} />
+        </button>
+        <button className="delete">
+          <img src={deleteImg} />
+        </button>
       </div>
     </Wrapper>
   )

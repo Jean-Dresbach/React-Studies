@@ -10,6 +10,7 @@ declare module "styled-components" {
       mainBackground: string
       text: string
       title: string
+      bookBackground: string[]
     }
   }
 }

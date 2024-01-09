@@ -1,34 +1,70 @@
+import { Book } from "../../types"
 import { Wrapper } from "./styles"
 
-export function BookForm() {
+interface BookFormProps {
+  book: Book
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+}
+
+export function BookForm({ book, onChange, onSubmit }: BookFormProps) {
   return (
-    <Wrapper>
+    <Wrapper onSubmit={onSubmit}>
       <label>
         Título
-        <input type="text" placeholder="Digite o título" />
+        <input
+          onChange={onChange}
+          type="text"
+          placeholder="Digite o título"
+          name="title"
+          value={book.title}
+        />
       </label>
 
       <label>
         Autor
-        <input type="text" placeholder="Digite o autor" />
+        <input
+          onChange={onChange}
+          type="text"
+          placeholder="Digite o autor"
+          name="author"
+          value={book.author}
+        />
       </label>
 
       <label>
         Gênero
-        <input type="text" placeholder="Digite o gênero" />
+        <input
+          onChange={onChange}
+          type="text"
+          placeholder="Digite o gênero"
+          name="genre"
+          value={book.genre}
+        />
       </label>
 
       <label>
         Descrição Breve
-        <input type="text" placeholder="Digite uma breve descrição" />
+        <input
+          onChange={onChange}
+          type="text"
+          placeholder="Digite uma breve descrição"
+          name="description"
+          value={book.description}
+        />
       </label>
       <label>
         Ano de Publicação
-        <input type="date" />
+        <input
+          onChange={onChange}
+          type="date"
+          name="publishYear"
+          value={book.publishYear}
+        />
       </label>
 
-      <button>
-        Adicionar livro
+      <button type="submit">
+        {book.id === 0 ? "Adicionar livro" : "Atualizar livro"}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"
