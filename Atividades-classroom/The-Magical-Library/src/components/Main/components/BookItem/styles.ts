@@ -2,22 +2,37 @@ import styled from "styled-components"
 
 export const Wrapper = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
-  background-color: brown;
+  background-color: rgba(0, 0, 0, 0.25);
   padding: 15px 20px;
   gap: 10px;
   border-radius: 5px;
 
-  & > :nth-child(1) {
+  .bookHeader {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+  }
+
+  .point {
+    display: block !important;
+    width: 4px !important;
+    height: 4px;
+    border-radius: 50%;
+    background-color: white;
+  }
+
+  /* & > :nth-child(1) {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 
     div {
+      flex-direction: row;
       display: flex;
+      justify-content: center;
       align-items: center;
       gap: 10px;
+      flex-grow: 1;
 
       div {
         width: 4px;
@@ -30,12 +45,15 @@ export const Wrapper = styled.div`
     h3 {
       text-transform: uppercase;
     }
-  }
+  } */
 
-  & > :nth-child(2) {
+  .bookBody {
     position: relative;
     display: flex;
+    text-align: justify;
     flex-direction: column;
+    min-height: 100px;
+    padding-right: 25px;
     gap: 10px;
 
     button {
@@ -43,34 +61,22 @@ export const Wrapper = styled.div`
       border: none;
       outline: none;
       background-color: transparent;
+      cursor: pointer;
 
       img {
         width: 40px;
         transform: rotate(90deg);
       }
     }
-  }
 
-  & > div > button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 8px;
-    border-radius: 8px;
-
-    div {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: white;
+    .edit {
+      right: -46px;
+      top: -7px;
     }
-  }
 
-  & > div > button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    .delete {
+      right: -45px;
+      top: 46px;
+    }
   }
 `

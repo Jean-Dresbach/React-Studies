@@ -20,29 +20,24 @@ export function BookItem({
 }: Book) {
   return (
     <Wrapper>
-      <div>
-        <div>
+      <div className="bookHeader">
+        <div className="containerInfo">
           <h3>{title}</h3>
-          <div></div>
+          <div className="point"></div>
           <span>{author}</span>
         </div>
 
         <span>{publicationYear}</span>
-        <button>
-          <div></div>
-          <div></div>
-          <div></div>
-        </button>
       </div>
 
-      <div>
+      <div className="bookBody">
         <span>{genre}</span>
         <p>{description}</p>
         <div>
-          <button>
+          <button className="edit">
             <img src={edtImg} />
           </button>
-          <button>
+          <button className="delete">
             <img src={deleteImg} />
           </button>
         </div>

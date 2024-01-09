@@ -35,5 +35,6 @@ export const ContainerBooks = styled.section`
   align-items: center;
   width: 100%;
   padding: 50px;
+  padding-right: 90px;
   color: white;
 `
