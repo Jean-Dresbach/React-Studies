@@ -1,19 +1,28 @@
-import { Book } from "../../types"
+import { useState } from "react"
+import { useBooks } from "../../../../contexts/BooksContext"
 
+import { Book } from "../../types"
 import { Wrapper } from "./styles"
 import editImg from "../../../../assets/edit.png"
 import deleteImg from "../../../../assets/trash-can.png"
-import { useState } from "react"
 
 interface BookItemProps {
   book: Book
+  onUpdate: (book: Book) => void
 }
 
-export function BookItem({ book }: BookItemProps) {
+export function BookItem({ book, onUpdate }: BookItemProps) {
   const [flip, setFlip] = useState(false)
+  const { deleteBook } = useBooks()
 
   const flipBook = () => {
     setFlip(!flip)
+  }
+
+  function handleDelete() {
+    if (confirm(`Deseja realmente excluir o livro "${book.title}"?`)) {
+      deleteBook(book.id)
+    }
   }
 
   return (
@@ -45,10 +54,10 @@ export function BookItem({ book }: BookItemProps) {
 
         <div className="bookPages"></div>
 
-        <button className="edit">
+        <button onClick={() => onUpdate(book)} className="edit">
           <img src={editImg} />
         </button>
-        <button className="delete">
+        <button onClick={handleDelete} className="delete">
           <img src={deleteImg} />
         </button>
       </div>

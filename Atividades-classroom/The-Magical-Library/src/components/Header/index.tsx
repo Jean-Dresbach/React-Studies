@@ -1,11 +1,9 @@
-import { Book } from "../Main/types"
+import { useBooks } from "../../contexts/BooksContext"
 import { CounterContainer, Wrapper } from "./styles"
 
-interface HeaderProps {
-  books: Book[]
-}
+export function Header() {
+  const { books } = useBooks()
 
-export function Header({ books }: HeaderProps) {
   return (
     <>
       <Wrapper>

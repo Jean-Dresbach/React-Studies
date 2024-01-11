@@ -4,6 +4,7 @@ import { Book } from "./types"
 import { BookForm } from "./components/Form"
 import { ContainerBanner, ContainerBooks, Wrapper } from "./styles"
 import { ListBooks } from "./components/ListBooks"
+import { useBooks } from "../../contexts/BooksContext"
 
 const emptyBook: Book = {
   id: 0,
@@ -15,12 +16,8 @@ const emptyBook: Book = {
   registerDate: ""
 }
 
-interface MainProps {
-  books: Book[]
-  setBooks: React.Dispatch<React.SetStateAction<Book[]>>
-}
-
-export function Main({ books, setBooks }: MainProps) {
+export function Main() {
+  const { books, addBook, setBooks } = useBooks()
   const [book, setBook] = useState<Book>(emptyBook)
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -33,16 +30,19 @@ export function Main({ books, setBooks }: MainProps) {
     e.preventDefault()
 
     if (book.id !== 0) {
+      const newBooks = [...books]
+      const bookIdx = books.findIndex(b => b.id === book.id)
+      newBooks[bookIdx] = book
+      setBooks(newBooks)
     } else {
-      setBooks(prevState => [
-        ...prevState,
-        {
-          ...book,
-          registerDate: new Date().toISOString().split("T")[0],
-          id: Date.now()
-        }
-      ])
+      addBook({
+        ...book,
+        registerDate: new Date().toISOString().split("T")[0],
+        id: Date.now()
+      })
     }
+
+    setBook(emptyBook)
   }
 
   return (
@@ -54,7 +54,7 @@ export function Main({ books, setBooks }: MainProps) {
       </ContainerBanner>
 
       <ContainerBooks>
-        <ListBooks books={books} />
+        <ListBooks books={books} onUpdate={setBook} />
       </ContainerBooks>
     </Wrapper>
   )

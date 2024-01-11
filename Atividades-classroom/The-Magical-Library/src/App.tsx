@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 import { ThemeProvider } from "styled-components"
 import GlobalStyle from "./styles/global"
 import light from "./themes/light"
@@ -8,16 +6,16 @@ import light from "./themes/light"
 import { Header } from "./components/Header"
 import { Main } from "./components/Main"
 
-import { Book } from "./components/Main/types"
+import { BooksProvider } from "./contexts/BooksContext"
 
 export function App() {
-  const [books, setBooks] = useState<Book[]>([])
-
   return (
     <ThemeProvider theme={light}>
-      <GlobalStyle />
-      <Header books={books} />
-      <Main books={books} setBooks={setBooks} />
+      <BooksProvider>
+        <GlobalStyle />
+        <Header />
+        <Main />
+      </BooksProvider>
     </ThemeProvider>
   )
 }
