@@ -6,12 +6,8 @@ export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.mainBackground};
-
-  hr {
-    width: 95%;
-  }
 `
 
 export const ContainerBanner = styled.div`
@@ -30,11 +26,8 @@ export const ContainerBanner = styled.div`
 
 export const ContainerBooks = styled.section`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  flex-wrap: wrap;
   padding: 50px;
-  gap: 15px;
-  padding-right: 70px;
+  gap: 30px;
   color: white;
 `

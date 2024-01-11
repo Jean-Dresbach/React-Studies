@@ -1,6 +1,11 @@
+import { Book } from "../Main/types"
 import { CounterContainer, Wrapper } from "./styles"
 
-export function Header() {
+interface HeaderProps {
+  books: Book[]
+}
+
+export function Header({ books }: HeaderProps) {
   return (
     <>
       <Wrapper>
@@ -9,7 +14,7 @@ export function Header() {
           Encantada
         </h1>
         <CounterContainer>
-          <p>0</p>
+          <p>{books.length}</p>
           <p>livros</p>
         </CounterContainer>
       </Wrapper>

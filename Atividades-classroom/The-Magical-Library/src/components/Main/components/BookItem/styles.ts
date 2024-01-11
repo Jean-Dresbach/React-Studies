@@ -1,76 +1,169 @@
 import styled from "styled-components"
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: ${({ theme }) =>
-    theme.colors.bookBackground[Math.floor(Math.random() * 10)]};
-  padding: 15px 20px;
-  gap: 10px;
-  border-radius: 5px;
+import pagesTexture from "../../../../assets/textura-de-paginas.jpg"
 
-  .bookHeader {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+interface WrapperProps {
+  index: number
+}
 
-    .containerInfo {
+export const Wrapper = styled.div<WrapperProps>`
+  width: 250px;
+  height: 375px;
+  margin-bottom: 40px;
+  perspective: 1000px;
+  cursor: pointer;
+
+  .bookInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.5s ease-in-out;
+    transform-style: preserve-3d;
+
+    border-radius: 0 8px 8px 0;
+
+    background-color: ${props =>
+      props.theme.colors.bookBackground[props.index]};
+
+    .bookFront,
+    .bookBack {
+      position: absolute;
+      inset: 0;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      flex-grow: 1;
+    }
 
-      .point {
-        display: block;
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        background-color: white;
+    .bookFront {
+      flex-direction: column;
+      padding: 30px;
+
+      .titleContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 6;
+
+        h3 {
+          font-size: 35px;
+          text-align: center;
+        }
+      }
+
+      .infoContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 4;
+
+        .authorContainer {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+          flex-grow: 2;
+
+          h4 {
+            font-size: 28px;
+          }
+        }
+
+        .infoContainer > span {
+          flex-grow: 1;
+        }
       }
     }
-  }
 
-  .bookBody {
-    position: relative;
-    display: flex;
-    text-align: justify;
-    flex-direction: column;
-    min-height: 90px;
-    padding-right: 25px;
-    gap: 10px;
-
-    div {
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
+    .bookPages {
+      position: absolute;
+      display: block;
+      width: 30px;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background-image: url(${pagesTexture});
+      background-size: contain;
+      transform: rotateY(-90deg) translateX(-15px) translateZ(-5px);
     }
 
-    button {
+    .bookBack {
+      background-color: ${props =>
+        props.theme.colors.bookBackground[props.index]};
+      align-items: center;
+      flex-direction: column;
+      text-align: justify;
+      padding: 30px;
+      border-radius: 8px 0 0 8px;
+      transform: rotateY(-180deg) translateZ(30px);
+
+      div {
+        flex-grow: 1;
+      }
+
+      p {
+        font-size: 12px;
+      }
+
+      p::first-letter {
+        font-family: "Tangerine", cursive, sans-serif;
+        text-transform: uppercase;
+        font-size: 30px;
+        margin-right: 3px;
+        margin-left: 10px;
+      }
+
+      span {
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+
+    .edit,
+    .delete {
       position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+
+      padding: 0 8px;
+      padding-bottom: 8px;
+
       border: none;
       outline: none;
       background-color: transparent;
       cursor: pointer;
 
       img {
-        width: 30px;
-        transform: rotate(90deg);
+        width: 15px;
       }
     }
 
-    button:hover {
-      transform: scale(1.2);
+    .edit {
+      background-color: ${({ theme }) => theme.colors.secondary};
+      height: 35px;
+      bottom: -35px;
+      right: 90px;
+      transform: translateZ(-5px);
     }
 
-    .edit {
-      right: -39px;
-      top: -2px;
+    .edit:hover {
+      height: 40px;
+      bottom: -40px;
+      transition: all 0.2s ease-in-out;
     }
 
     .delete {
-      right: -39px;
-      top: 43px;
+      background-color: ${({ theme }) => theme.colors.primary};
+      height: 30px;
+      left: 90px;
+      bottom: -30px;
+      transform: translateZ(-10px);
+    }
+
+    .delete:hover {
+      bottom: -35px;
+      height: 35px;
+      transition: all 0.2s ease-in-out;
     }
   }
 `

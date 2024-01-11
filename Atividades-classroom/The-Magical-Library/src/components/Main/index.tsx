@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Book } from "./types"
 
-import { BookItem } from "./components/BookItem"
 import { BookForm } from "./components/Form"
 import { ContainerBanner, ContainerBooks, Wrapper } from "./styles"
 import { ListBooks } from "./components/ListBooks"

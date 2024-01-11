@@ -14,12 +14,22 @@ export default createGlobalStyle`
         max-width: 1200px;
         margin: auto;
         box-shadow: 0 0 21px 10px rgba(0, 0, 0, 0.5);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: 'Tangerine', cursive, sans-serif;
+        color: ${({ theme }) => theme.colors.title};
     }
 
     h1, h2 {
-        font-family: 'Tangerine', cursive, sans-serif;
-        color: ${({ theme }) => theme.colors.title};
         font-size: 80px;
         text-align: center;
     }
+
+    .flip {
+    .bookInner {
+      transform: rotateY(-180deg);
+    }
+  }
 `

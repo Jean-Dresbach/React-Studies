@@ -16,7 +16,7 @@ export function App() {
   return (
     <ThemeProvider theme={light}>
       <GlobalStyle />
-      <Header />
+      <Header books={books} />
       <Main books={books} setBooks={setBooks} />
     </ThemeProvider>
   )
