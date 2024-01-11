@@ -7,13 +7,19 @@ export const Wrapper = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  height: 500px;
   padding-left: 50px;
 
   background-image: url(${headerImg});
   background-size: cover;
-  background-position: 0 -180px;
+  background-repeat: no-repeat;
+  background-position: center -180px;
   background-attachment: fixed;
+
+  @media screen and (max-width: 600px) {
+    & {
+      padding-left: 30px;
+    }
+  }
 `
 
 export const CounterContainer = styled.div`
@@ -23,7 +29,7 @@ export const CounterContainer = styled.div`
   align-items: center;
 
   height: 100%;
-  padding: 0 100px;
+  padding: 100px 100px;
 
   background: linear-gradient(
     270deg,
@@ -41,5 +47,18 @@ export const CounterContainer = styled.div`
     margin-top: -90px;
     font-size: 200px;
     text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 600px) {
+    & {
+      font-size: 35px;
+      padding: 100px 30px;
+      padding-right: 50px;
+    }
+
+    :nth-child(1) {
+      margin-top: -50px;
+      font-size: 100px;
+    }
   }
 `

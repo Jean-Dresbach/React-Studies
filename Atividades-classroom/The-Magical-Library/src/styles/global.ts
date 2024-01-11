@@ -32,4 +32,10 @@ export default createGlobalStyle`
       transform: rotateY(-180deg);
     }
   }
+
+  @media screen and (max-width: 600px) {
+    h1, h2 {
+        font-size: 50px; 
+    }
+  }
 `

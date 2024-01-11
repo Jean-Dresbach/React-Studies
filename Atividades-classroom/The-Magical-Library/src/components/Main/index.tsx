@@ -47,10 +47,16 @@ export function Main() {
 
   return (
     <Wrapper>
-      <BookForm book={book} onChange={handleChange} onSubmit={saveBook} />
+      <div className="formContainer">
+        <BookForm book={book} onChange={handleChange} onSubmit={saveBook} />
+      </div>
 
       <ContainerBanner>
         <h2>Estante</h2>
+        <input
+          type="text"
+          placeholder="Digite o título, autor, gênero ou ano do livro..."
+        />
       </ContainerBanner>
 
       <ContainerBooks>

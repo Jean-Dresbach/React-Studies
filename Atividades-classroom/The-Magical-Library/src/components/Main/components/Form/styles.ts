@@ -4,7 +4,8 @@ export const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
   margin: 50px 0;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
 
   input {
     width: 100%;
