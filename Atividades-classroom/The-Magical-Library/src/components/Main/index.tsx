@@ -18,7 +18,9 @@ const emptyBook: Book = {
 
 export function Main() {
   const { books, addBook, setBooks } = useBooks()
+
   const [book, setBook] = useState<Book>(emptyBook)
+  const [search, setSearch] = useState("")
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target
@@ -56,11 +58,13 @@ export function Main() {
         <input
           type="text"
           placeholder="Digite o título, autor, gênero ou ano do livro..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
         />
       </ContainerBanner>
 
       <ContainerBooks>
-        <ListBooks books={books} onUpdate={setBook} />
+        <ListBooks books={books} onUpdate={setBook} bookProperty={search} />
       </ContainerBooks>
     </Wrapper>
   )

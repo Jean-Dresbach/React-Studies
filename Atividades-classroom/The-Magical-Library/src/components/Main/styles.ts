@@ -59,6 +59,11 @@ export const ContainerBooks = styled.section`
   gap: 30px;
   color: white;
 
+  .errorText {
+    color: ${({ theme }) => theme.colors.primary};
+    font-weight: bolder;
+  }
+
   @media screen and (max-width: 600px) {
     & {
       padding: 30px;
