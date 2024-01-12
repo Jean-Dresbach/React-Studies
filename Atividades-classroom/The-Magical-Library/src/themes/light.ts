@@ -5,18 +5,21 @@ export default {
     secondary: "#429DD6",
     bodyBackground: "#f3f6f7",
     mainBackground: "#fff",
+    boxShadow: "rgba(0, 0, 0, 0.5)",
+    inputBackground: "#fff",
     text: "#595F72",
     title: "#fff",
     bookBackground: [
       "#383D3B",
       "#131B23",
-      "#43281C",
-      "#3D2B3D",
+      "#582B11",
+      "#17B890",
       "#635D5C",
       "#880D1E",
       "#090446",
       "#8D6A9F",
-      "#0e7154"
+      "#0e7154",
+      "#DE9E36"
     ]
   }
 }

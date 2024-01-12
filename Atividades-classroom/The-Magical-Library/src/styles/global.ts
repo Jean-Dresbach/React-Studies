@@ -13,7 +13,7 @@ export default createGlobalStyle`
         color: ${({ theme }) => theme.colors.text};
         max-width: 1200px;
         margin: auto;
-        box-shadow: 0 0 21px 10px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 21px 10px ${({ theme }) => theme.colors.boxShadow};
         font-family: Arial, Helvetica, sans-serif;
     }
 

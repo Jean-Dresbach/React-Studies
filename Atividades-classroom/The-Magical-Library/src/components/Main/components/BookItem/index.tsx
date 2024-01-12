@@ -13,7 +13,7 @@ interface BookItemProps {
 
 export function BookItem({ book, onUpdate }: BookItemProps) {
   const [flip, setFlip] = useState(false)
-  const { deleteBook } = useBooks()
+  const { books, deleteBook } = useBooks()
 
   const flipBook = () => {
     setFlip(!flip)
@@ -25,11 +25,15 @@ export function BookItem({ book, onUpdate }: BookItemProps) {
     }
   }
 
+  function defineBookColor() {
+    return books.indexOf(book) % 10
+  }
+
   return (
     <Wrapper
       onClick={flipBook}
       className={flip ? "flip" : ""}
-      index={Math.floor(Math.random() * 10)}
+      index={defineBookColor()}
     >
       <div className="bookInner">
         <div className="bookFront">

@@ -13,9 +13,11 @@ export const Wrapper = styled.form`
     margin-top: 5px;
     margin-bottom: 10px;
     border-radius: 8px;
+    background-color: ${({ theme }) => theme.colors.inputBackground};
 
-    border: 1px solid #ddd;
-    outline-color: ${({ theme }) => theme.colors.secondary};
+    border: 1px solid ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
+    outline: none;
   }
 
   button {

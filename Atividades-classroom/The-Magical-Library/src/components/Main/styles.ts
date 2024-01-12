@@ -28,6 +28,8 @@ export const ContainerBanner = styled.div`
   background-attachment: fixed;
 
   input {
+    background-color: ${({ theme }) => theme.colors.inputBackground};
+    color: ${({ theme }) => theme.colors.text};
     padding: 8px 15px;
     width: 300px;
     border-radius: 5px;

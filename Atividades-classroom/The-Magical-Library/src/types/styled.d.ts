@@ -8,6 +8,8 @@ declare module "styled-components" {
       secondary: string
       bodyBackground: string
       mainBackground: string
+      inputBackground: string
+      boxShadow: string
       text: string
       title: string
       bookBackground: string[]
