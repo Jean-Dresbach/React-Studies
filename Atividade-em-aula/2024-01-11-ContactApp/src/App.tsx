@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Home } from "./pages/Home"
 import { RegisterContacts } from "./pages/RegisterContacts"
 import GlobalStyles from "./styles/global"
+import { ContactsProvider } from "./contexts/ContactsContext"
 
 const routes = createBrowserRouter([
   {
@@ -23,9 +24,9 @@ const routes = createBrowserRouter([
 
 export function App() {
   return (
-    <>
+    <ContactsProvider>
       <GlobalStyles />
       <RouterProvider router={routes} />
-    </>
+    </ContactsProvider>
   )
 }
