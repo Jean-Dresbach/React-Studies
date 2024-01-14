@@ -3,7 +3,7 @@ import styled from "styled-components"
 import pagesTexture from "../../../../assets/textura-de-paginas.jpg"
 
 interface WrapperProps {
-  index: number
+  $index: number
 }
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -23,7 +23,7 @@ export const Wrapper = styled.div<WrapperProps>`
     border-radius: 0 8px 8px 0;
 
     background-color: ${props =>
-      props.theme.colors.bookBackground[props.index]};
+      props.theme.colors.bookBackground[props.$index]};
 
     .bookFront,
     .bookBack {
@@ -88,10 +88,12 @@ export const Wrapper = styled.div<WrapperProps>`
 
     .bookBack {
       background-color: ${props =>
-        props.theme.colors.bookBackground[props.index]};
+        props.theme.colors.bookBackground[props.$index]};
+      display: flex;
       align-items: center;
       flex-direction: column;
       text-align: justify;
+      gap: 10px;
       padding: 30px;
       border-radius: 8px 0 0 8px;
       transform: rotateY(-180deg) translateZ(30px);

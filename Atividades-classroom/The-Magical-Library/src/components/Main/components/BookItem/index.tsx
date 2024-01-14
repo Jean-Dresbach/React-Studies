@@ -33,7 +33,7 @@ export function BookItem({ book, onUpdate }: BookItemProps) {
     <Wrapper
       onClick={flipBook}
       className={flip ? "flip" : ""}
-      index={defineBookColor()}
+      $index={defineBookColor()}
     >
       <div className="bookInner">
         <div className="bookFront">
@@ -45,7 +45,7 @@ export function BookItem({ book, onUpdate }: BookItemProps) {
               <span>Por</span>
               <h4>{book.author}</h4>
             </div>
-            <span>{book.publishYear.split("-")[0]}</span>
+            <span>{book.publishYear}</span>
           </div>
         </div>
 

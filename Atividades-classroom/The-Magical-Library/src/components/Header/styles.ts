@@ -57,7 +57,6 @@ export const Wrapper = styled.header`
     }
 
     input:checked + label:after {
-      top: 3;
       left: 0;
       transform: translateX(235%);
       background: linear-gradient(180deg, #777, #bfbfbf);

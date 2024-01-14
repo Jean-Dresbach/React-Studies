@@ -1,66 +1,96 @@
+import { FormikErrors, FormikTouched } from "formik"
 import { Book } from "../../types"
 import { Wrapper } from "./styles"
 
 interface BookFormProps {
   book: Book
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  errors: FormikErrors<Book>
+  touched: FormikTouched<Book>
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
 }
 
-export function BookForm({ book, onChange, onSubmit }: BookFormProps) {
+export function BookForm({
+  book,
+  errors,
+  touched,
+  onChange,
+  onSubmit
+}: BookFormProps) {
   return (
     <Wrapper onSubmit={onSubmit}>
-      <label>
+      <label className={errors.title && touched.title ? "invalidEntry" : ""}>
         Título
         <input
           onChange={onChange}
           type="text"
-          placeholder="Digite o título"
+          placeholder="Digite o título..."
           name="title"
           value={book.title}
+          id="title"
         />
+        <span>{errors.title ? errors.title : "errorText"} </span>
       </label>
 
-      <label>
+      <label className={errors.author && touched.author ? "invalidEntry" : ""}>
         Autor
         <input
           onChange={onChange}
           type="text"
-          placeholder="Digite o autor"
+          placeholder="Digite o autor..."
           name="author"
           value={book.author}
+          id="author"
         />
+        <span>{errors.author ? errors.author : "errorText"}</span>
       </label>
 
-      <label>
+      <label className={errors.genre && touched.genre ? "invalidEntry" : ""}>
         Gênero
         <input
           onChange={onChange}
           type="text"
-          placeholder="Digite o gênero"
+          placeholder="Digite o gênero..."
           name="genre"
           value={book.genre}
+          id="genre"
         />
+        <span>{errors.genre ? errors.genre : "errorText"}</span>
       </label>
 
-      <label>
+      <label
+        className={
+          errors.description && touched.description ? "invalidEntry" : ""
+        }
+      >
         Descrição Breve
-        <input
+        <textarea
           onChange={onChange}
-          type="text"
-          placeholder="Digite uma breve descrição"
+          placeholder="Digite uma breve descrição..."
           name="description"
           value={book.description}
+          maxLength={600}
+          id="description"
         />
+        <span>{errors.description ? errors.description : "errorText"}</span>
       </label>
-      <label>
+      <label
+        className={
+          errors.publishYear && touched.publishYear ? "invalidEntry" : ""
+        }
+      >
         Ano de Publicação
         <input
           onChange={onChange}
-          type="date"
+          placeholder="Digite o ano de publicação..."
+          type="number"
           name="publishYear"
           value={book.publishYear}
+          id="publishYear"
         />
+        <span>{errors.publishYear ? errors.publishYear : "errorText"}</span>
       </label>
 
       <button type="submit">

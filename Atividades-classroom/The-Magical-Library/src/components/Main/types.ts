@@ -5,5 +5,5 @@ export interface Book {
   genre: string
   description: string
   registerDate: string
-  publishYear: string
+  publishYear: number
 }

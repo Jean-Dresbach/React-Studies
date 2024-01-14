@@ -7,17 +7,58 @@ export const Wrapper = styled.form`
   width: 100%;
   max-width: 600px;
 
+  .invalidEntry {
+    input,
+    textarea {
+      border: 1px solid ${({ theme }) => theme.colors.primary};
+    }
+    span {
+      visibility: visible;
+    }
+  }
+
   input {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    margin-bottom: 10px;
+
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.inputBackground};
 
     border: 1px solid ${({ theme }) => theme.colors.text};
     color: ${({ theme }) => theme.colors.text};
     outline: none;
+  }
+
+  span {
+    display: block;
+    visibility: hidden;
+    font-size: 12px;
+    margin: 2px 10px 5px;
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  input:is(:focus, .valid),
+  textarea:is(:focus, .valid) {
+    border: 1px solid ${({ theme }) => theme.colors.secondary};
+  }
+
+  textarea {
+    width: 100%;
+    height: 145px;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    background-color: ${({ theme }) => theme.colors.inputBackground};
+    resize: none;
+
+    border: 1px solid ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
+    outline: none;
+  }
+
+  textarea::-webkit-scrollbar {
+    width: 0;
   }
 
   button {
@@ -27,6 +68,7 @@ export const Wrapper = styled.form`
     background-color: ${({ theme }) => theme.colors.secondary};
     color: ${({ theme }) => theme.colors.title};
     padding: 10px 0;
+    margin-top: 5px;
     border-radius: 8px;
     outline: none;
     border: none;

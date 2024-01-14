@@ -5,52 +5,60 @@ import { BookForm } from "./components/Form"
 import { ContainerBanner, ContainerBooks, Wrapper } from "./styles"
 import { ListBooks } from "./components/ListBooks"
 import { useBooks } from "../../contexts/BooksContext"
-
-const emptyBook: Book = {
-  id: 0,
-  title: "",
-  author: "",
-  description: "",
-  genre: "",
-  publishYear: "",
-  registerDate: ""
-}
+import { useFormik } from "formik"
+import { formSchema } from "../../schemas"
 
 export function Main() {
   const { books, addBook, setBooks } = useBooks()
-
-  const [book, setBook] = useState<Book>(emptyBook)
   const [search, setSearch] = useState("")
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target
+  const {
+    values,
+    handleChange,
+    handleSubmit,
+    setValues,
+    resetForm,
+    errors,
+    touched
+  } = useFormik<Book>({
+    initialValues: {
+      id: 0,
+      title: "",
+      author: "",
+      description: "",
+      genre: "",
+      publishYear: 0,
+      registerDate: ""
+    },
+    validationSchema: formSchema,
+    onSubmit
+  })
 
-    setBook(prevState => ({ ...prevState, [name]: value }))
-  }
-
-  function saveBook(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-
-    if (book.id !== 0) {
+  function onSubmit() {
+    if (values.id !== 0) {
       const newBooks = [...books]
-      const bookIdx = books.findIndex(b => b.id === book.id)
-      newBooks[bookIdx] = book
+      const bookIdx = books.findIndex(b => b.id === values.id)
+      newBooks[bookIdx] = values
       setBooks(newBooks)
     } else {
       addBook({
-        ...book,
+        ...values,
         registerDate: new Date().toISOString().split("T")[0],
         id: Date.now()
       })
     }
-
-    setBook(emptyBook)
+    resetForm()
   }
-
   return (
     <Wrapper>
       <div className="formContainer">
-        <BookForm book={book} onChange={handleChange} onSubmit={saveBook} />
+        <BookForm
+          book={values}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+          errors={errors}
+          touched={touched}
+        />
       </div>
 
       <ContainerBanner>
@@ -64,7 +72,7 @@ export function Main() {
       </ContainerBanner>
 
       <ContainerBooks>
-        <ListBooks books={books} onUpdate={setBook} bookProperty={search} />
+        <ListBooks books={books} onUpdate={setValues} bookProperty={search} />
       </ContainerBooks>
     </Wrapper>
   )
