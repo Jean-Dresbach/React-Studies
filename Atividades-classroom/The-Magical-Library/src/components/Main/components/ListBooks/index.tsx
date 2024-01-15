@@ -23,23 +23,27 @@ export function ListBooks({ books, onUpdate, bookProperty }: ListBooksProps) {
     return searchString.includes(bookProperty)
   }
 
+  function renderNoBooksMessage(message: string) {
+    return <p className="errorText">{message}</p>
+  }
+
+  function renderBookItems(books: Book[]) {
+    return books.map(book => (
+      <BookItem key={book.id} book={book} onUpdate={onUpdate} />
+    ))
+  }
+
   function showBooks() {
     if (bookProperty) {
       const filteredBooks = books.filter(book => handleFilterBooks(book))
-
-      if (filteredBooks.length === 0) {
-        return <p className="errorText">Nenhum livro encontrado!</p>
-      } else {
-        return filteredBooks.map(book => (
-          <BookItem key={book.id} book={book} onUpdate={onUpdate} />
-        ))
-      }
+      return filteredBooks.length === 0
+        ? renderNoBooksMessage("Nenhum livro encontrado!")
+        : renderBookItems(filteredBooks)
     } else {
-      return books.map(book => (
-        <BookItem key={book.id} book={book} onUpdate={onUpdate} />
-      ))
+      return books.length === 0
+        ? renderNoBooksMessage("Nenhum livro na estante")
+        : renderBookItems(books)
     }
   }
-
   return showBooks()
 }

@@ -19,9 +19,22 @@ export function BookForm({
   onChange,
   onSubmit
 }: BookFormProps) {
+  function toggleErrorClass(name: string) {
+    const InputName = name as keyof Book
+    return errors[InputName] && touched[InputName] ? "invalidEntry" : ""
+  }
+
+  function defineErrorSpanMessage(name: string) {
+    const InputName = name as keyof Book
+    return errors[InputName] ? errors[InputName] : "Sem erros"
+  }
+
+  const defineButtonInnerText = (id: number) =>
+    id === 0 ? "Adicionar livro" : "Atualizar livro"
+
   return (
     <Wrapper onSubmit={onSubmit}>
-      <label className={errors.title && touched.title ? "invalidEntry" : ""}>
+      <label className={toggleErrorClass("title")}>
         Título
         <input
           onChange={onChange}
@@ -31,10 +44,10 @@ export function BookForm({
           value={book.title}
           id="title"
         />
-        <span>{errors.title ? errors.title : "errorText"} </span>
+        <span>{defineErrorSpanMessage("title")} </span>
       </label>
 
-      <label className={errors.author && touched.author ? "invalidEntry" : ""}>
+      <label className={toggleErrorClass("author")}>
         Autor
         <input
           onChange={onChange}
@@ -44,10 +57,10 @@ export function BookForm({
           value={book.author}
           id="author"
         />
-        <span>{errors.author ? errors.author : "errorText"}</span>
+        <span>{defineErrorSpanMessage("author")}</span>
       </label>
 
-      <label className={errors.genre && touched.genre ? "invalidEntry" : ""}>
+      <label className={toggleErrorClass("genre")}>
         Gênero
         <input
           onChange={onChange}
@@ -57,14 +70,10 @@ export function BookForm({
           value={book.genre}
           id="genre"
         />
-        <span>{errors.genre ? errors.genre : "errorText"}</span>
+        <span>{defineErrorSpanMessage("genre")}</span>
       </label>
 
-      <label
-        className={
-          errors.description && touched.description ? "invalidEntry" : ""
-        }
-      >
+      <label className={toggleErrorClass("description")}>
         Descrição Breve
         <textarea
           onChange={onChange}
@@ -74,13 +83,10 @@ export function BookForm({
           maxLength={600}
           id="description"
         />
-        <span>{errors.description ? errors.description : "errorText"}</span>
+        <span>{defineErrorSpanMessage("description")}</span>
       </label>
-      <label
-        className={
-          errors.publishYear && touched.publishYear ? "invalidEntry" : ""
-        }
-      >
+
+      <label className={toggleErrorClass("publishYear")}>
         Ano de Publicação
         <input
           onChange={onChange}
@@ -90,11 +96,11 @@ export function BookForm({
           value={book.publishYear}
           id="publishYear"
         />
-        <span>{errors.publishYear ? errors.publishYear : "errorText"}</span>
+        <span>{defineErrorSpanMessage("publishYear")}</span>
       </label>
 
       <button type="submit">
-        {book.id === 0 ? "Adicionar livro" : "Atualizar livro"}
+        {defineButtonInnerText(book.id)}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"

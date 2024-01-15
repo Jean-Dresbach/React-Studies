@@ -3,9 +3,9 @@ import styled from "styled-components"
 export const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 50px 0;
   width: 100%;
   max-width: 600px;
+  margin: 50px 0;
 
   .invalidEntry {
     input,
@@ -21,10 +21,8 @@ export const Wrapper = styled.form`
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.inputBackground};
-
     border: 1px solid ${({ theme }) => theme.colors.text};
     color: ${({ theme }) => theme.colors.text};
     outline: none;
@@ -51,7 +49,6 @@ export const Wrapper = styled.form`
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.inputBackground};
     resize: none;
-
     border: 1px solid ${({ theme }) => theme.colors.text};
     color: ${({ theme }) => theme.colors.text};
     outline: none;
@@ -64,7 +61,6 @@ export const Wrapper = styled.form`
   button {
     position: relative;
     overflow: hidden;
-
     background-color: ${({ theme }) => theme.colors.secondary};
     color: ${({ theme }) => theme.colors.title};
     padding: 10px 0;
@@ -72,7 +68,6 @@ export const Wrapper = styled.form`
     border-radius: 8px;
     outline: none;
     border: none;
-
     cursor: pointer;
 
     svg {
