@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useBooks } from "../../../../contexts/BooksContext"
-
 import { Book } from "../../types"
 import { Wrapper } from "./styles"
 import editImg from "../../../../assets/edit.png"
@@ -25,9 +24,7 @@ export function BookItem({ book, onUpdate }: BookItemProps) {
     }
   }
 
-  function defineBookColor() {
-    return books.indexOf(book) % 10
-  }
+  const defineBookColor = () => books.indexOf(book) % 10
 
   return (
     <Wrapper
@@ -59,10 +56,10 @@ export function BookItem({ book, onUpdate }: BookItemProps) {
         <div className="bookPages"></div>
 
         <button onClick={() => onUpdate(book)} className="edit">
-          <img src={editImg} />
+          <img src={editImg} alt="Editar" />
         </button>
         <button onClick={handleDelete} className="delete">
-          <img src={deleteImg} />
+          <img src={deleteImg} alt="Excluir" />
         </button>
       </div>
     </Wrapper>

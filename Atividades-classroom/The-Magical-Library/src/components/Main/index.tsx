@@ -1,6 +1,5 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Book } from "./types"
-
 import { BookForm } from "./components/Form"
 import { ContainerBanner, ContainerBooks, Wrapper } from "./styles"
 import { ListBooks } from "./components/ListBooks"
@@ -33,6 +32,10 @@ export function Main() {
     validationSchema: formSchema,
     onSubmit
   })
+
+  useEffect(() => {
+    setValues(values)
+  }, [values, setValues])
 
   function onSubmit() {
     if (values.id !== 0) {

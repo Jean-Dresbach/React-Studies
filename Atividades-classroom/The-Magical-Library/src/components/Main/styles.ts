@@ -1,5 +1,4 @@
 import styled from "styled-components"
-
 import estanteImg from "../../assets/estante.jpg"
 
 export const Wrapper = styled.main`
@@ -18,21 +17,19 @@ export const ContainerBanner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   width: 100%;
   padding: 50px;
-
   background-image: url(${estanteImg});
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 
   input {
+    width: 300px;
+    padding: 8px 15px;
+    border-radius: 5px;
     background-color: ${({ theme }) => theme.colors.inputBackground};
     color: ${({ theme }) => theme.colors.text};
-    padding: 8px 15px;
-    width: 300px;
-    border-radius: 5px;
     border: none;
     outline: none;
   }

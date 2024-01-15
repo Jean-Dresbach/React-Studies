@@ -1,5 +1,4 @@
 import styled from "styled-components"
-
 import pagesTexture from "../../../../assets/textura-de-paginas.jpg"
 
 interface WrapperProps {
@@ -19,9 +18,7 @@ export const Wrapper = styled.div<WrapperProps>`
     height: 100%;
     transition: transform 1.5s ease-in-out;
     transform-style: preserve-3d;
-
     border-radius: 0 8px 8px 0;
-
     background-color: ${props =>
       props.theme.colors.bookBackground[props.$index]};
 
@@ -76,26 +73,26 @@ export const Wrapper = styled.div<WrapperProps>`
 
     .bookPages {
       position: absolute;
-      display: block;
-      width: 30px;
       top: 0;
       bottom: 0;
       right: 0;
+      display: block;
+      width: 30px;
       background-image: url(${pagesTexture});
       background-size: contain;
       transform: rotateY(-90deg) translateX(-15px) translateZ(-5px);
     }
 
     .bookBack {
-      background-color: ${props =>
-        props.theme.colors.bookBackground[props.$index]};
       display: flex;
       align-items: center;
       flex-direction: column;
-      text-align: justify;
       gap: 10px;
       padding: 30px;
       border-radius: 8px 0 0 8px;
+      background-color: ${props =>
+        props.theme.colors.bookBackground[props.$index]};
+      text-align: justify;
       transform: rotateY(-180deg) translateZ(30px);
 
       div {
@@ -126,10 +123,7 @@ export const Wrapper = styled.div<WrapperProps>`
       display: flex;
       justify-content: center;
       align-items: end;
-
-      padding: 0 8px;
-      padding-bottom: 8px;
-
+      padding: 0 8px 8px;
       border: none;
       outline: none;
       background-color: transparent;
@@ -142,23 +136,23 @@ export const Wrapper = styled.div<WrapperProps>`
 
     .edit {
       background-color: ${({ theme }) => theme.colors.secondary};
-      height: 35px;
       bottom: -35px;
       right: 90px;
+      height: 35px;
       transform: translateZ(-5px);
     }
 
     .edit:hover {
-      height: 40px;
       bottom: -40px;
+      height: 40px;
       transition: all 0.2s ease-in-out;
     }
 
     .delete {
       background-color: ${({ theme }) => theme.colors.primary};
-      height: 30px;
       left: 90px;
       bottom: -30px;
+      height: 30px;
       transform: translateZ(-10px);
     }
 
