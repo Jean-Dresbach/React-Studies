@@ -9,7 +9,6 @@ export default createGlobalStyle`
 
     body {
         background-color: ${({ theme }) => theme.colors.bodyBackground};
-        font-family: sans-serif;
         color: ${({ theme }) => theme.colors.text};
         max-width: 1200px;
         margin: auto;
