@@ -9,9 +9,7 @@ interface IBooksContext {
   setBooks: React.Dispatch<React.SetStateAction<Book[]>>
 }
 
-const BooksContext = createContext<IBooksContext>({
-  books: [] as Book[]
-} as IBooksContext)
+const BooksContext = createContext<IBooksContext>({} as IBooksContext)
 
 interface BooksProviderProps {
   children: ReactNode
@@ -25,7 +23,7 @@ export function BooksProvider({ children }: BooksProviderProps) {
   }
 
   function deleteBook(id: number) {
-    const filteredBooks = books.filter(b => b.id != id)
+    const filteredBooks = books.filter(b => b.id !== id)
     setBooks(filteredBooks)
   }
 
