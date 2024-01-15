@@ -7,21 +7,19 @@ export function Header() {
   const { toggleTheme } = useTheme()
 
   return (
-    <>
-      <Wrapper>
-        <div className="containerToggleTheme">
-          <input id="toggleTheme" onClick={toggleTheme} type="checkbox" />
-          <label htmlFor="toggleTheme"></label>
-        </div>
-        <h1>
-          A Biblioteca <br />
-          Encantada
-        </h1>
-        <CounterContainer>
-          <p>{books.length}</p>
-          <p>livros</p>
-        </CounterContainer>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <div className="containerToggleTheme">
+        <input id="toggleTheme" onClick={toggleTheme} type="checkbox" />
+        <label htmlFor="toggleTheme" aria-label="Toggle Theme"></label>
+      </div>
+      <h1>
+        A Biblioteca <br />
+        Encantada
+      </h1>
+      <CounterContainer>
+        <p>{books.length}</p>
+        <p>livros</p>
+      </CounterContainer>
+    </Wrapper>
   )
 }

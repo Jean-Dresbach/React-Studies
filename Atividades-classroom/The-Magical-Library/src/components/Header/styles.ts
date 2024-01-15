@@ -1,5 +1,4 @@
 import styled from "styled-components"
-
 import headerImg from "../../assets/library-background.jpg"
 
 export const Wrapper = styled.header`
@@ -7,14 +6,12 @@ export const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding-left: 50px;
-
   background-image: url(${headerImg});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center -180px;
   background-attachment: fixed;
+  padding-left: 50px;
 
   .containerToggleTheme {
     position: absolute;
@@ -28,10 +25,10 @@ export const Wrapper = styled.header`
     }
 
     label {
-      width: 50px;
-      height: 20px;
       position: relative;
       display: block;
+      width: 50px;
+      height: 20px;
       background: ${({ theme }) => theme.colors.secondary};
       border-radius: 200px;
       box-shadow:
@@ -42,12 +39,13 @@ export const Wrapper = styled.header`
 
     label:after {
       content: "";
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
       position: absolute;
       top: 3px;
       left: 3px;
+      display: block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
       background: linear-gradient(180deg, #ffcc89, #d8860b);
       box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     }
@@ -83,10 +81,8 @@ export const CounterContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   height: 100%;
   padding: 100px 100px;
-
   background: linear-gradient(
     270deg,
     rgba(0, 0, 0, 0.8) 0%,
@@ -94,9 +90,8 @@ export const CounterContainer = styled.div`
     rgba(78, 78, 78, 0.5) 86%,
     rgba(223, 223, 223, 0) 100%
   );
-
-  font-family: "Tangerine", cursive, sans-serif;
   color: ${({ theme }) => theme.colors.title};
+  font-family: "Tangerine", cursive, sans-serif;
   font-size: 70px;
 
   :nth-child(1) {
@@ -108,8 +103,7 @@ export const CounterContainer = styled.div`
   @media screen and (max-width: 600px) {
     & {
       font-size: 35px;
-      padding: 100px 30px;
-      padding-right: 50px;
+      padding: 100px 50px 100px 30px;
     }
 
     :nth-child(1) {
