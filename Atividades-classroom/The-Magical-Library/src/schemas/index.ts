@@ -1,22 +1,26 @@
 import * as yup from "yup"
 
+const requiredMessage = "Campo obrigatório!"
+const maxDescriptionMessage = "Máximo de caracteres atingido"
+const positiveIntegerMessage =
+  "O ano de publicação deve ser um número positivo e inteiro!"
+const maxPublishYearMessage =
+  "O ano de publicação não pode ser maior que o ano atual!"
+
 export const formSchema = yup.object().shape({
   id: yup.number(),
-  title: yup.string().required("Campo obrigatório!"),
-  author: yup.string().required("Campo obrigatório!"),
+  title: yup.string().required(requiredMessage),
+  author: yup.string().required(requiredMessage),
   description: yup
     .string()
-    .max(600, "Máximo de caracteres atingido")
-    .required("Campo obrigatório!"),
-  genre: yup.string().required("Campo obrigatório!"),
+    .max(600, maxDescriptionMessage)
+    .required(requiredMessage),
+  genre: yup.string().required(requiredMessage),
   publishYear: yup
     .number()
-    .positive("O ano de publicação deve ser um número positivo!")
-    .integer("O ano de publicação deve ser um número inteiro!")
-    .max(
-      new Date().getFullYear(),
-      "O ano de publicação não pode ser maior que o ano atual!"
-    )
-    .required("Campo obrigatório!"),
+    .positive(positiveIntegerMessage)
+    .integer(positiveIntegerMessage)
+    .max(new Date().getFullYear(), maxPublishYearMessage)
+    .required(requiredMessage),
   registerDate: yup.date()
 })
