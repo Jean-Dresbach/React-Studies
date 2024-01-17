@@ -8,7 +8,7 @@ interface ListBooksProps {
 }
 
 export function ListBooks({ books, onUpdate, bookProperty }: ListBooksProps) {
-  function handleFilterBooks(book: Book) {
+  function handleFilterCondition(book: Book) {
     const excludedProperties = ["id", "registerDate"]
 
     let searchString = ""
@@ -20,6 +20,7 @@ export function ListBooks({ books, onUpdate, bookProperty }: ListBooksProps) {
         searchString += book[key]
       }
     })
+
     return searchString.includes(bookProperty)
   }
 
@@ -28,14 +29,19 @@ export function ListBooks({ books, onUpdate, bookProperty }: ListBooksProps) {
   }
 
   function renderBookItems(books: Book[]) {
-    return books.map(book => (
-      <BookItem key={book.id} book={book} onUpdate={onUpdate} />
-    ))
+    return (
+      <>
+        <p>Clique em um livro para mais detalhes!</p>
+        {books.map(book => (
+          <BookItem key={book.id} book={book} onUpdate={onUpdate} />
+        ))}
+      </>
+    )
   }
 
   function showBooks() {
     if (bookProperty) {
-      const filteredBooks = books.filter(book => handleFilterBooks(book))
+      const filteredBooks = books.filter(book => handleFilterCondition(book))
       return filteredBooks.length === 0
         ? renderNoBooksMessage("Nenhum livro encontrado!")
         : renderBookItems(filteredBooks)
@@ -45,5 +51,6 @@ export function ListBooks({ books, onUpdate, bookProperty }: ListBooksProps) {
         : renderBookItems(books)
     }
   }
+
   return showBooks()
 }

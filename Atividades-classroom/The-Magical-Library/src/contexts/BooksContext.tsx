@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext, useState } from "react"
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState
+} from "react"
 
 import { Book } from "../components/Main/types"
 
@@ -16,7 +22,11 @@ interface BooksProviderProps {
 }
 
 export function BooksProvider({ children }: BooksProviderProps) {
-  const [books, setBooks] = useState<Book[]>([])
+  const initialState = JSON.parse(localStorage.getItem("books") || "[]")
+
+  const [books, setBooks] = useState<Book[]>(initialState)
+
+  useEffect(() => localStorage.setItem("books", JSON.stringify(books)), [books])
 
   function addBook(book: Book) {
     setBooks(preState => [...preState, book])

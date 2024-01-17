@@ -10,7 +10,7 @@ export function Header() {
     <Wrapper>
       <div className="containerToggleTheme">
         <input id="toggleTheme" onClick={toggleTheme} type="checkbox" />
-        <label htmlFor="toggleTheme" aria-label="Toggle Theme"></label>
+        <label htmlFor="toggleTheme"></label>
       </div>
       <h1>
         A Biblioteca <br />

@@ -14,9 +14,7 @@ export function BookItem({ book, onUpdate }: BookItemProps) {
   const [flip, setFlip] = useState(false)
   const { books, deleteBook } = useBooks()
 
-  const flipBook = () => {
-    setFlip(!flip)
-  }
+  const flipBook = () => setFlip(!flip)
 
   function handleDelete() {
     if (confirm(`Deseja realmente excluir o livro "${book.title}"?`)) {

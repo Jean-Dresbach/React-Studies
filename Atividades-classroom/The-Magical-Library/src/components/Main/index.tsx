@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Book } from "./types"
 import { BookForm } from "./components/Form"
 import { ContainerBanner, ContainerBooks, Wrapper } from "./styles"
@@ -33,25 +33,25 @@ export function Main() {
     onSubmit
   })
 
-  useEffect(() => {
-    setValues(values)
-  }, [values, setValues])
+  function updateBook() {
+    const newBooks = [...books]
+    const bookIdx = books.findIndex(b => b.id === values.id)
+    newBooks[bookIdx] = values
+    setBooks(newBooks)
+  }
 
   function onSubmit() {
-    if (values.id !== 0) {
-      const newBooks = [...books]
-      const bookIdx = books.findIndex(b => b.id === values.id)
-      newBooks[bookIdx] = values
-      setBooks(newBooks)
-    } else {
-      addBook({
-        ...values,
-        registerDate: new Date().toISOString().split("T")[0],
-        id: Date.now()
-      })
-    }
+    values.id !== 0
+      ? updateBook()
+      : addBook({
+          ...values,
+          registerDate: new Date().toISOString().split("T")[0],
+          id: Date.now()
+        })
+
     resetForm()
   }
+
   return (
     <Wrapper>
       <div className="formContainer">

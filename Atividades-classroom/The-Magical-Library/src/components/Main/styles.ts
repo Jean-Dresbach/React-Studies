@@ -51,21 +51,33 @@ export const ContainerBanner = styled.div`
 `
 
 export const ContainerBooks = styled.section`
+  position: relative;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  min-height: 475px;
   padding: 50px;
   gap: 30px;
   color: white;
 
+  & > p {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: small;
+    color: ${({ theme }) => theme.colors.text};
+  }
+
   .errorText {
+    position: static;
+    font-size: medium;
     color: ${({ theme }) => theme.colors.primary};
     font-weight: bolder;
   }
 
   @media screen and (max-width: 600px) {
     & {
-      padding: 30px;
+      padding: 50px 30px 30px;
     }
   }
 `
